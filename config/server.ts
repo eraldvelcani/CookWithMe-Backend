@@ -1,8 +1,19 @@
-export default ({ env }) => ({
-  host: env('HOST', '0.0.0.0'),
-  port: env.int('PORT', 1337),
-  proxy: true,
-  app: {
-    keys: env.array('APP_KEYS'),
+// export default ({ env }) => ({
+//   host: env('HOST', '0.0.0.0'),
+//   port: env.int('PORT', 1337),
+//   proxy: true,
+//   app: {
+//     keys: env.array('APP_KEYS'),
+//   },
+// });
+module.exports = ({ env }) => ({
+  url: env('PUBLIC_URL', 'https://cookwithme-backend.onrender.com'),
+  app: { keys: env.array('APP_KEYS', ['yourKey1', 'yourKey2']) },
+  proxy: true, // 👈 Trust Render’s proxy so HTTPS is respected
+  admin: {
+    auth: {
+      secret: env('ADMIN_JWT_SECRET'),
+    },
+    // You usually don’t need to force cookies here
   },
 });
