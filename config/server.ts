@@ -26,11 +26,11 @@ module.exports = ({ env }) => ({
   url: env('PUBLIC_URL', 'https://cookwithme-backend.onrender.com'),
   proxy: true, // 👈 trust Render's proxy so HTTPS is respected
   app: {
-    keys: env.array('APP_KEYS', ['defaultKey1', 'defaultKey2']),
+    keys: env.array('APP_KEYS'),
   },
-  admin: {
-    auth: {
-      secret: env('ADMIN_JWT_SECRET', 'someRandomSecret'),
-    },
-  },
+  // admin: {
+  //   auth: {
+  //     secret: env('ADMIN_JWT_SECRET', 'someRandomSecret'),
+  //   },
+  // },
 });
