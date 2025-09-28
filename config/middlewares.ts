@@ -21,6 +21,13 @@ export default [
       },
     },
   },
+  {
+    name: 'strapi::proxy',
+    config: {
+      enabled: true,
+      trustProxy: true, // 👈 this makes Strapi respect X-Forwarded-Proto headers from Render
+    },
+  },
   'strapi::cors',
   'strapi::poweredBy',
   'strapi::query',
@@ -28,4 +35,5 @@ export default [
   'strapi::session',
   'strapi::favicon',
   'strapi::public',
+  
 ];
